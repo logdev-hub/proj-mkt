@@ -1,0 +1,96 @@
+IMPRESSÕES E SUGESTÕES PARA NOVAS TURMAS
+Relatório digital de fechamento das UCs de E-commerce — MKT-N1
+
+Este arquivo acompanha o hotsite desenvolvido para registrar experiências, aprendizados, projetos e possibilidades de aperfeiçoamento para futuras turmas do Técnico em Marketing.
+
+A intenção é compartilhar estas impressões com a técnica de área, a técnica educacional e os docentes que atuam na área, contribuindo para o diálogo pedagógico e para o planejamento de novos projetos.
+
+1. APRESENTAÇÃO DA FERRAMENTA
+
+O hotsite reúne, em um único ambiente, diferentes elementos produzidos ou organizados a partir da experiência da turma:
+
+- páginas individuais para os projetos desenvolvidos;
+- registros visuais e vídeos das atividades;
+- explicação do processo de escolha das soluções tecnológicas;
+- aprendizados sobre ferramentas Adobe, softwares open source e inteligência artificial;
+- manual de prompts estruturados para apoiar atividades de marketing;
+- roadmap relacionando as Unidades Curriculares às tecnologias e fundamentos adequados a cada momento;
+- roteiros completos em PDF para possíveis organizações de novas turmas;
+- checklist de preparação;
+- avaliação fechada do desenvolvimento das equipes;
+- formulário em PDF para acompanhamento docente, registro de evidências e plano de ação.
+
+Mais do que um relatório final, a proposta é que a ferramenta funcione como memória do percurso, apoio ao planejamento e ponto de partida para novos projetos.
+
+2. OBJETIVO PEDAGÓGICO
+
+O material foi pensado para ajudar a transformar as experiências da turma em referências úteis para outras ofertas. Ele pode contribuir para:
+
+- visualizar a evolução das equipes ao longo das Unidades Curriculares;
+- identificar competências que precisam ser retomadas ou aprofundadas;
+- organizar melhor a entrada de tecnologias no momento pedagógico adequado;
+- aproximar os projetos das situações encontradas no mercado de trabalho;
+- registrar decisões, dificuldades, soluções e evidências de aprendizagem;
+- fortalecer a integração entre docentes de diferentes componentes;
+- apoiar conversas de avaliação formativa com as equipes;
+- preservar exemplos que podem inspirar projetos futuros.
+
+3. SUGESTÃO DE USO EM NOVAS TURMAS
+
+O material pode ser utilizado desde o início do curso, e não apenas no encerramento.
+
+No início da turma, o roadmap pode apoiar o planejamento coletivo dos docentes. A equipe pode escolher uma das quatro possibilidades de roteiro e adaptar o percurso às características da turma, do território e dos projetos disponíveis.
+
+Durante o desenvolvimento, o checklist pode ser aplicado em momentos curtos, como após uma entrega, apresentação, teste de solução ou etapa de projeto. O objetivo não é classificar estudantes, mas perceber onde a equipe precisa de demonstração, orientação, prática adicional ou feedback.
+
+Ao longo das UCs, o manual de prompts pode apoiar o letramento digital. Os estudantes podem aprender a formular pedidos mais claros, revisar respostas, verificar informações, proteger dados e manter a autoria das decisões. Os prompts devem ser tratados como instrumentos de raciocínio e planejamento, não como substitutos da análise profissional.
+
+No fechamento, o formulário de avaliação pode ajudar os docentes a registrar evidências observáveis, pontos fortes, prioridades de desenvolvimento e próximas ações pedagógicas.
+
+4. CONTRIBUIÇÕES PARA O TRABALHO DOCENTE
+
+Uma possibilidade é que cada docente escolha algumas perguntas do formulário relacionadas à sua UC e registre exemplos concretos. Em reuniões pedagógicas, os registros podem ser comparados para identificar padrões:
+
+- quais competências aparecem com mais autonomia;
+- quais ferramentas geram mais dificuldade;
+- em que momento uma equipe passa a justificar suas escolhas;
+- quais problemas se repetem entre diferentes projetos;
+- quais intervenções produzem melhor resultado;
+- que conhecimentos precisam ser retomados antes da próxima etapa.
+
+Esse acompanhamento pode favorecer uma visão integrada do desenvolvimento, evitando que cada UC seja percebida como uma etapa isolada.
+
+5. SUGESTÕES DE APERFEIÇOAMENTO
+
+Para novas turmas, a ferramenta pode ser ampliada com:
+
+- exemplos reais de entregas em diferentes níveis de desenvolvimento;
+- rubricas específicas para determinados projetos;
+- espaço para depoimentos dos estudantes;
+- registro de decisões e alterações realizadas durante o projeto;
+- indicadores simples de participação, autonomia e qualidade das entregas;
+- novas categorias de prompts alinhadas às UCs que forem trabalhadas;
+- versões do formulário adaptadas para autoavaliação e avaliação entre pares;
+- uma área de boas práticas compartilhadas pelos docentes;
+- registro das ferramentas utilizadas e dos motivos de sua escolha;
+- comparação entre o planejamento inicial e os resultados alcançados.
+
+Também pode ser interessante revisar o material ao final de cada turma, retirando conteúdos que não contribuíram para o percurso e incorporando soluções, exemplos e estratégias que tenham demonstrado bons resultados.
+
+6. CUIDADOS IMPORTANTES
+
+O uso de ferramentas digitais, inteligência artificial, plataformas de e-commerce, CRM e recursos de produção deve estar associado a objetivos claros de aprendizagem. A tecnologia deve ajudar a resolver um problema ou ampliar uma possibilidade, e não ser utilizada apenas por novidade.
+
+É importante orientar as equipes sobre privacidade, direitos autorais, acessibilidade, segurança da informação, verificação de fontes e responsabilidade pelas decisões. Soluções prontas podem ser úteis, mas nem sempre se adequam às demandas existentes. Por isso, a análise do contexto, do público, dos recursos disponíveis e dos objetivos do negócio continua sendo essencial.
+
+7. CONVITE AO DIÁLOGO
+
+Este material é uma proposta aberta. As observações registradas no hotsite representam uma leitura da experiência realizada e podem ser enriquecidas pela visão da técnica de área, da técnica educacional e dos demais docentes.
+
+A expectativa é que o relatório contribua para uma conversa sobre o que funcionou, o que poderia ser diferente e quais condições podem favorecer projetos ainda mais integrados, autorais e conectados ao mercado de trabalho.
+
+Que esta ferramenta possa servir como ponto de partida para novas perguntas, novos experimentos e novas formas de acompanhar o desenvolvimento das turmas.
+
+Arquivo relacionado:
+Hotsite de fechamento das UCs de E-commerce — MKT-N1
+Formulário: assets/docs/formularios/formulario-avaliacao-desenvolvimento-equipes.pdf

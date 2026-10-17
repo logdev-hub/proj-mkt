@@ -1,0 +1,40 @@
+from pathlib import Path
+from reportlab.lib import colors
+from reportlab.lib.pagesizes import A4
+from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
+from reportlab.lib.units import mm
+from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Table, TableStyle, PageBreak
+
+OUT=Path(__file__).resolve().parents[1]/'assets'/'docs'/'formularios'; OUT.mkdir(parents=True,exist_ok=True)
+BLUE=colors.HexColor('#003b68'); ORANGE=colors.HexColor('#f58220'); PALE=colors.HexColor('#f4f7fa'); LINE=colors.HexColor('#dce6ef'); INK=colors.HexColor('#13283b'); MUTED=colors.HexColor('#64748b')
+styles=getSampleStyleSheet(); styles.add(ParagraphStyle(name='Cover',parent=styles['Title'],fontName='Helvetica-Bold',fontSize=24,leading=28,textColor=BLUE)); styles.add(ParagraphStyle(name='H2x',parent=styles['Heading2'],fontName='Helvetica-Bold',fontSize=15,leading=19,textColor=BLUE,spaceBefore=10,spaceAfter=6)); styles.add(ParagraphStyle(name='Bodyx',parent=styles['BodyText'],fontSize=9,leading=13,textColor=INK,spaceAfter=5)); styles.add(ParagraphStyle(name='Smallx',parent=styles['BodyText'],fontSize=7.5,leading=10,textColor=MUTED)); styles.add(ParagraphStyle(name='Cellx',parent=styles['BodyText'],fontSize=7.5,leading=10,textColor=INK)); styles.add(ParagraphStyle(name='Whitex',parent=styles['BodyText'],fontSize=8,leading=10,textColor=colors.white))
+def P(t,s='Bodyx'): return Paragraph(t,styles[s])
+def footer(c,d):
+ c.saveState(); c.setFillColor(BLUE); c.rect(0,A4[1]-8*mm,A4[0],8*mm,fill=1,stroke=0); c.setFillColor(ORANGE); c.rect(18*mm,A4[1]-6*mm,18*mm,3*mm,fill=1,stroke=0); c.setFillColor(colors.white); c.setFont('Helvetica-Bold',7); c.drawString(40*mm,A4[1]-5*mm,'MKT-N1 / AVALIAÇÃO DE EQUIPES'); c.setStrokeColor(LINE); c.line(18*mm,14*mm,192*mm,14*mm); c.setFillColor(MUTED); c.setFont('Helvetica',7); c.drawString(18*mm,9*mm,'Formulário docente · Plano de Curso 339'); c.drawRightString(192*mm,9*mm,str(d.page)); c.restoreState()
+questions=[
+('Letramento digital',['A equipe organiza arquivos, versões e pastas de forma compreensível?','A equipe identifica formatos, resolução e proporções adequados para cada canal?','A equipe consegue aprender uma ferramenta nova com autonomia progressiva?']),
+('Estratégia e pesquisa',['A equipe transforma pesquisa em decisões de público, posicionamento ou proposta de valor?','A equipe diferencia evidência, hipótese e opinião?','A equipe consegue justificar escolhas com relação ao objetivo do negócio?']),
+('Produção visual e conteúdo',['A equipe produz ou adapta imagens, vídeos e textos para diferentes formatos?','A equipe demonstra cuidado com direitos autorais, acessibilidade e qualidade da mídia?','A equipe diversifica ferramentas quando a solução exige outra abordagem?']),
+('Tecnologia e IA',['A equipe compreende a estrutura básica da solução digital que está construindo?','A equipe utiliza IA como apoio, verifica respostas e mantém autoria das decisões?','A equipe consegue identificar uma tarefa repetitiva que poderia ser automatizada?']),
+('E-commerce, CRM e ERP',['A equipe relaciona catálogo, oferta, jornada, operação e experiência do cliente?','A equipe compreende a importância de clientes, produtos, estoque, pedidos e indicadores conectados?','A equipe considera privacidade, consentimento e segurança ao trabalhar com dados?']),
+('Colaboração e projeto',['A equipe distribui responsabilidades e registra decisões?','A equipe recebe feedback, testa a solução e realiza correções de rota?','A equipe apresenta processo, evidências, resultados e próximos passos com clareza?'])]
+def build():
+ doc=SimpleDocTemplate(str(OUT/'formulario-avaliacao-desenvolvimento-equipes.pdf'),pagesize=A4,rightMargin=18*mm,leftMargin=18*mm,topMargin=15*mm,bottomMargin=20*mm,title='Formulário de avaliação do desenvolvimento das equipes')
+ scale_rows=[[P('Opção','Whitex'),P('Significado','Whitex'),P('Quando marcar','Whitex')]]
+ for option, meaning, when in [
+  ('1 · Não evidenciado','A competência ainda não apareceu de forma observável.','Não há evidência suficiente ou a equipe não iniciou a prática.'),
+  ('2 · Inicial','A equipe realiza com forte dependência de instruções.','Há tentativa, mas faltam autonomia, consistência ou compreensão.'),
+  ('3 · Em desenvolvimento','A equipe realiza parte do processo e corrige com feedback.','A competência aparece, mas ainda oscila ou depende de acompanhamento.'),
+  ('4 · Consolidado','A equipe realiza, justifica e adapta com autonomia.','A prática é consistente e pode ser transferida para outro contexto.'),
+  ('N/A · Não observado','Não foi possível observar nesta etapa.','Não use como nota; registre a oportunidade de observação.')]:
+  scale_rows.append([P(option,'Cellx'),P(meaning,'Cellx'),P(when,'Cellx')])
+ scale_table=Table(scale_rows,[31*mm,66*mm,77*mm],repeatRows=1)
+ scale_table.setStyle(TableStyle([('BACKGROUND',(0,0),(-1,0),BLUE),('GRID',(0,0),(-1,-1),.35,LINE),('VALIGN',(0,0),(-1,-1),'TOP'),('ROWBACKGROUNDS',(0,1),(-1,-1),[colors.white,PALE]),('LEFTPADDING',(0,0),(-1,-1),5),('RIGHTPADDING',(0,0),(-1,-1),5),('TOPPADDING',(0,0),(-1,-1),5),('BOTTOMPADDING',(0,0),(-1,-1),5)]))
+ story=[P('MKT-N1 · FORMULÁRIO DOCENTE','Smallx'),P('Avaliação do desenvolvimento das equipes','Cover'),P('Instrumento de acompanhamento formativo para apoiar decisões pedagógicas ao longo das UCs.', 'Bodyx'),P('<b>Equipe:</b> ____________________________________    <b>Turma:</b> ____________________<br/><b>Docente:</b> ___________________________________    <b>Data:</b> ____ / ____ / ______','Bodyx'),P('Como utilizar','H2x'),P('Leia cada pergunta pensando nas evidências observadas em atividades, entregas, reuniões, testes e apresentações. Marque uma única opção por pergunta. O objetivo é identificar o estágio de desenvolvimento e orientar a próxima intervenção — não classificar pessoas.', 'Bodyx'),P('Escala de respostas','H2x'),scale_table,Spacer(1,5*mm)]
+ for cat,qs in questions:
+  story.append(P(cat,'H2x')); rows=[[P('Pergunta','Whitex'),P('1','Whitex'),P('2','Whitex'),P('3','Whitex'),P('4','Whitex'),P('N/A','Whitex'),P('Evidência / comentário','Whitex')]]
+  for q in qs: rows.append([P(q,'Cellx'),P('☐','Cellx'),P('☐','Cellx'),P('☐','Cellx'),P('☐','Cellx'),P('☐','Cellx'),P('________________________________','Cellx')])
+  t=Table(rows,colWidths=[72*mm,10*mm,10*mm,10*mm,10*mm,13*mm,39*mm],repeatRows=1); t.setStyle(TableStyle([('BACKGROUND',(0,0),(-1,0),BLUE),('GRID',(0,0),(-1,-1),.35,LINE),('VALIGN',(0,0),(-1,-1),'TOP'),('ROWBACKGROUNDS',(0,1),(-1,-1),[colors.white,PALE]),('LEFTPADDING',(0,0),(-1,-1),5),('RIGHTPADDING',(0,0),(-1,-1),5),('TOPPADDING',(0,0),(-1,-1),6),('BOTTOMPADDING',(0,0),(-1,-1),6)])); story += [t,Spacer(1,4*mm)]
+ story += [PageBreak(),P('Síntese docente e plano de ação','H2x'),P('Use esta página para registrar padrões observados e decidir a próxima ação pedagógica. Uma média baixa não deve encerrar a análise: ela indica onde criar uma situação de aprendizagem, demonstração, estudo dirigido ou feedback.', 'Bodyx'),Table([[P('Tema','Whitex'),P('Pontos fortes observados','Whitex'),P('Prioridade de desenvolvimento','Whitex'),P('Próxima ação','Whitex')]]+[[P(c,'Cellx'),P('________________________________','Cellx'),P('Alta / média / baixa','Cellx'),P('________________________________','Cellx')] for c,_ in questions],colWidths=[37*mm,51*mm,42*mm,54*mm],repeatRows=1),Spacer(1,8*mm),P('Perguntas para fechamento','H2x'),P('• Que competência a equipe demonstrou com mais autonomia?<br/>• Qual obstáculo impediu o avanço?<br/>• Que recurso, exemplo ou intervenção pode reduzir esse obstáculo?<br/>• Que evidência deverá ser observada novamente?<br/>• Como conectar a próxima atividade às UCs e ao projeto transversal?','Bodyx'),P('Observação metodológica','H2x'),P('Este formulário é uma proposta de acompanhamento formativo associada às competências do Plano de Curso 339. Ele não substitui os critérios institucionais de avaliação, as menções ou os registros oficiais.','Smallx')]
+ doc.build(story,onFirstPage=footer,onLaterPages=footer)
+build()
