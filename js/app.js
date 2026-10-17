@@ -7,3 +7,22 @@ function contentPage(){if(!$('#contentPage'))return;const key=new URLSearchParam
 function gallery(){const filters=['Todos','Desenvolvimento','Produção','Equipes','Apresentações','Bastidores'];$('#galleryFilters').innerHTML=filters.map((x,i)=>`<button class="filter-btn ${i?'':'active'}" data-filter="${x}">${x}</button>`).join('');const cats=['Equipes','Produção','Bastidores','Desenvolvimento','Apresentações','Equipes','Produção','Bastidores','Desenvolvimento','Apresentações','Equipes','Produção','Bastidores','Desenvolvimento','Apresentações','Equipes'];$('#galleryGrid').innerHTML=cats.map((c,i)=>`<div class="col-6 col-md-4 col-lg-3 gallery-item" data-category="${c}"><img src="assets/images/galeria/${String(i+1).padStart(3,'0')}.jpeg" loading="lazy" alt="Registro ${i+1}"><span>${c}</span></div>`).join('');$$('.filter-btn').forEach(b=>b.onclick=()=>{$$('.filter-btn').forEach(x=>x.classList.remove('active'));b.classList.add('active');$$('.gallery-item').forEach(i=>i.classList.toggle('d-none',b.dataset.filter!=='Todos'&&i.dataset.category!==b.dataset.filter));});}
 function checklist(){const lists={'Letramento Digital':['Fundamentos de IA','Criação de prompts','Organização de arquivos','Formatos e resolução','Edição gráfica e vídeo'], 'Produção Visual':['Canva quando adequado','GIMP','KdenLive','Otimização para web','Direitos autorais'],Tecnologia:['HTML, CSS e JavaScript','Bootstrap','VS Code','Publicação web'],Gestão:['CRM','ERP','Clientes, produtos e estoque','Pedidos e pós-venda'],'E-commerce':['Jornada','Catálogo e oferta','Checkout e conversão','Indicadores']};const saved=JSON.parse(localStorage.getItem('mkt-checklist')||'{}');$('#checklistGrid').innerHTML=Object.entries(lists).map(([k,v])=>`<div class="col-md-6 col-lg-4"><div class="check-card"><h3>${k}</h3>${v.map((x,i)=>{const id=k+i;return`<label><input type="checkbox" data-check="${id}" ${saved[id]?'checked':''}><span>${x}</span></label>`}).join('')}</div></div>`).join('');$$('[data-check]').forEach(c=>c.onchange=()=>{const s=JSON.parse(localStorage.getItem('mkt-checklist')||'{}');s[c.dataset.check]=c.checked;localStorage.setItem('mkt-checklist',JSON.stringify(s))});$('#checkAll').onclick=()=>$$('[data-check]').forEach(c=>{c.checked=true;c.dispatchEvent(new Event('change'))});$('#clearChecks').onclick=()=>{localStorage.removeItem('mkt-checklist');$$('[data-check]').forEach(c=>c.checked=false)};}
 document.addEventListener('DOMContentLoaded',()=>{shell();projectIndex();projectPage();contentPage();});
+
+// Fallback para páginas que podem ser abertas sem o JavaScript do Bootstrap.
+// Mantém o menu responsivo funcional mesmo em uma execução local simples.
+document.addEventListener('DOMContentLoaded',()=>{
+  if(window.bootstrap)return;
+  const toggler=document.querySelector('.navbar-toggler');
+  const menu=document.querySelector('#navLinks');
+  if(!toggler||!menu)return;
+  toggler.addEventListener('click',()=>{
+    const open=menu.classList.toggle('show');
+    toggler.setAttribute('aria-expanded',String(open));
+    toggler.setAttribute('aria-label',open?'Fechar menu':'Abrir menu');
+  });
+  menu.querySelectorAll('.nav-link').forEach(link=>link.addEventListener('click',()=>{
+    menu.classList.remove('show');
+    toggler.setAttribute('aria-expanded','false');
+    toggler.setAttribute('aria-label','Abrir menu');
+  }));
+});
